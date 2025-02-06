@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 映射器接口 namespace:命名空间，此属性通常用来指定对应的Dao层接口。 -->
+<mapper namespace="com.pc3ryangzhang.fixnow.mapper.UserMapper">
+    <!-- id: 对应Dao层接口方法名 parameterType: 指定输入参数类型 -->
+    <!-- useGeneratedKeys="true"意味着使用数据库的自动生成主键功能 -->
+    <!-- keyProperty 指定自动生成的主键值应该设置到哪个属性中 -->
+
+    <select id="getUserByName" parameterType="String" resultType="com.pc3ryangzhang.fixnow.entity.User">
+        select * from user where userName = #{userName}
+    </select>
+
+    <select id="getUserByEmail" parameterType="String" resultType="com.pc3ryangzhang.fixnow.entity.User">
+        select * from user where email = #{email}
+    </select>
+
+    <select id="getUserById" parameterType="int" resultType="com.pc3ryangzhang.fixnow.entity.User">
+        SELECT * FROM user WHERE userId = #{UserId}
+    </select>
+
+    <insert id="insertUser" parameterType="com.pc3ryangzhang.fixnow.entity.User">
+        INSERT INTO user (userName, email, password, userType) VALUES (#{userName}, #{email}, #{password}, #{userType})
+    </insert>
+
+    <update id="updateUserAvatar" parameterType="com.pc3ryangzhang.fixnow.entity.User">
+        UPDATE user SET avatar = #{avatar} WHERE userId = #{userId}
+    </update>
+
+
+    <select id="getAvatar" resultType="string" parameterType="int">
+        SELECT avatar FROM user WHERE userId = #{userId}
+    </select>
+
+
+
+</mapper>
