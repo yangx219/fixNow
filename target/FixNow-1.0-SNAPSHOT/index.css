@@ -1,0 +1,164 @@
+/* Styles pour le corps de la page */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+/********************************************************/
+/*                       en-tête                        */
+/********************************************************/
+
+/* Styles pour l'en-tête */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 10;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.user-icon {
+    float: right; /* Aligner l'icône à droite */
+}
+
+.user-icon a {
+    color: #fff; /* Couleur du lien */
+}
+
+
+/********************************************************/
+/*                        main                          */
+/********************************************************/
+
+/* Styles pour la section principale */
+main {
+    padding: 20px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.content {
+    width: 100%;
+}
+
+/********************************************************/
+/*                     barre de filtre                  */
+/********************************************************/
+
+
+.sidebar {
+    width: 20%;
+    background-color: #f0f0f0;
+    padding : 10px;
+    border-radius: 10px; /* Ajoute des coins arrondis */
+}
+
+
+
+/********************************************************/
+/*                   barre de recherche                 */
+/********************************************************/
+
+/* CSS pour la barre de recherche */
+.search-bar {
+    margin-bottom:20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+/* CSS pour l'input de recherche */
+.search-bar input[type="text"] {
+    flex: 1; /* Prend toute la largeur disponible */
+    padding: 10px; /* Ajustez selon vos préférences */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* CSS pour le bouton de recherche */
+.search-bar button {
+    background-color: #007bff; /* Couleur de fond */
+    color: #fff; /* Couleur du texte */
+    padding: 10px 20px; /* Ajustez selon vos préférences */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Animation de transition */
+}
+
+/* Changement de couleur au survol */
+.search-bar button:hover {
+    background-color: #0056b3; /* Nouvelle couleur de fond au survol */
+}
+
+
+
+
+/********************************************************/
+/*                       annonce                        */
+/********************************************************/
+
+
+.announcement-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+}
+
+
+.announcement {
+    /* Supprime le soulignement par défaut des liens */
+    text-decoration: none;
+    /* Autres styles personnalisés pour les annonces */
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px; /* Ajoute des coins arrondis */
+
+    color: inherit; /* Utilise la couleur du texte par défaut */
+}
+
+.announcement:hover,
+.announcement:active {
+    background-color: #f0f0f0; /* La couleur de fond reste la même au survol et au clic */
+}
+
+
+
+
+
+/********************************************************/
+/*                        footer                        */
+/********************************************************/
+
+/* Styles pour le pied de page */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}

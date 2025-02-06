@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pc3ryangzhang.fixnow.mapper.ProfileMapper">
+
+    <select id="getProfileByUserId" resultType="com.pc3ryangzhang.fixnow.entity.Profile" parameterType="int">
+        SELECT * FROM Profile WHERE userId = #{userId}
+    </select>
+
+    <insert id="insertProfile" parameterType="com.pc3ryangzhang.fixnow.entity.Profile">
+        INSERT INTO Profile (userId, location, skills, experienceYears, bio, contactInfo)
+        VALUES (#{userId}, #{location}, #{skills}, #{experienceYears}, #{bio}, #{contactInfo})
+    </insert>
+
+    <update id="updateProfile" parameterType="com.pc3ryangzhang.fixnow.entity.Profile">
+        UPDATE Profile SET location = #{location}, skills = #{skills}, experienceYears = #{experienceYears},
+                           bio = #{bio}, contactInfo = #{contactInfo} WHERE profileId = #{profileId}
+    </update>
+
+    <select id="getAllProfiles" resultType="com.pc3ryangzhang.fixnow.entity.Profile">
+        SELECT p.*, u.userName AS userName
+        FROM Profile p
+                 JOIN User u ON p.userId = u.userId
+    </select>
+
+</mapper>
