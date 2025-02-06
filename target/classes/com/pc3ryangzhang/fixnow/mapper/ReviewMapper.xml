@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pc3ryangzhang.fixnow.mapper.ReviewMapper">
+
+    <select id="getReviewById" resultType="com.pc3ryangzhang.fixnow.entity.Review" parameterType="int">
+        SELECT * FROM Review WHERE reviewId = #{reviewId}
+    </select>
+
+    <insert id="insertReview" parameterType="com.pc3ryangzhang.fixnow.entity.Review">
+        INSERT INTO Review (requestId, reviewerId, revieweeId, rating, comment)
+        VALUES (#{requestId}, #{reviewerId}, #{revieweeId}, #{rating}, #{comment})
+    </insert>
+
+    <update id="updateReview" parameterType="com.pc3ryangzhang.fixnow.entity.Review">
+        UPDATE Review SET rating = #{rating}, comment = #{comment} WHERE reviewId = #{reviewId}
+    </update>
+
+    <delete id="deleteReview" parameterType="int">
+        DELETE FROM Review WHERE reviewId = #{reviewId}
+    </delete>
+
+</mapper>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pc3ryangzhang.fixnow.mapper.RepairRequestMapper">
+
+    <select id="getRepairRequestById" resultType="com.pc3ryangzhang.fixnow.entity.RepairRequest" parameterType="int">
+        SELECT * FROM Repair_Request WHERE requestId = #{requestId}
+    </select>
+
+    <insert id="insertRepairRequest" parameterType="com.pc3ryangzhang.fixnow.entity.RepairRequest">
+        INSERT INTO Repair_Request (userId, machineType, description, preferredTime, status)
+        VALUES (#{userId}, #{machineType}, #{description}, #{preferredTime}, #{status})
+    </insert>
+
+    <update id="updateRepairRequestStatus" parameterType="com.pc3ryangzhang.fixnow.entity.RepairRequest">
+        UPDATE Repair_Request SET status = #{status} WHERE requestId = #{requestId}
+    </update>
+
+    <select id="getRepairRequestsByUserId" resultType="com.pc3ryangzhang.fixnow.entity.RepairRequest">
+        SELECT * FROM Repair_Request WHERE userId = #{userId}
+    </select>
+
+    <select id="getAllRepairRequests" resultType="com.pc3ryangzhang.fixnow.entity.RepairRequest">
+        SELECT * FROM Repair_Request
+    </select>
+
+    <delete id="deleteRepairRequest" parameterType="com.pc3ryangzhang.fixnow.entity.RepairRequest">
+        DELETE FROM Repair_Request WHERE requestId = #{requestId}
+    </delete>
+
+</mapper>

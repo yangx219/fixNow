@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pc3ryangzhang.fixnow.mapper.LocationMapper">
+
+    <resultMap id="locationResult" type="com.pc3ryangzhang.fixnow.entity.Location">
+        <id column="location_id" property="locationId"/>
+        <result column="user_id" property="userId"/>
+        <result column="latitude" property="latitude"/>
+        <result column="longitude" property="longitude"/>
+    </resultMap>
+
+    <select id="getLocationById" resultMap="locationResult">
+        SELECT * FROM Location WHERE locationId = #{locationId}
+    </select>
+
+    <select id="getLocationByUserId" resultMap="locationResult">
+        SELECT * FROM Location WHERE userId = #{userId}
+    </select>
+
+    <insert id="insertLocation">
+        INSERT INTO Location (userId, latitude, longitude)
+        VALUES (#{userId}, #{latitude}, #{longitude})
+        <selectKey keyProperty="locationId" resultType="int" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+    </insert>
+
+    <update id="updateLocation">
+        UPDATE Location SET latitude = #{latitude}, longitude = #{longitude}
+        WHERE locationId = #{locationId}
+    </update>
+
+    <delete id="deleteLocation">
+        DELETE FROM Location WHERE locationId = #{locationId}
+    </delete>
+
+</mapper>
